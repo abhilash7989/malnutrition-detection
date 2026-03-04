@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../static/assets/css/chart.css">
+    <link rel="stylesheet" href="../static/assets/css/owl.css">
+
+<style>
+  .center-heading {
+      text-align: center;
+      width: 100%;
+      display: block;
+  }
+  .container {
+      width: 80%;
+      margin: auto;
+  }
+  .section-heading {
+      text-align: center;
+  }
+  .image-container {
+      text-align: center;
+  }
+  img {
+      width: 800px;
+      height: 500px;
+  }
+</style>
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand"><h2>Malnutrition Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('first')}}">Home</a>
+              </li>  
+               
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('index')}}">Preview</a>
+                </li>  
+				<li class="nav-item">
+                    <a class="nav-link" href="{{url_for('performance')}}">Performance Analysis</a>
+                  </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('chart')}}">chart</a>
+                </li>  
+                 <li class="nav-item">
+              <a class="nav-link" href="{{url_for('first')}}">Logout</a>
+            </li>   
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</h1>
+            <span>Chart</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="callback-form contact-us">
+      <div class="container">
+          <div class="section-heading">
+              <span>Static Visualization Chart</span>
+              <h2>Malnutrition <em>Detection</em></h2>
+          </div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                        <script type="text/javascript">
+                          google.charts.load("current", {packages:["corechart"]});
+                          google.charts.setOnLoadCallback(drawChart);
+                          function drawChart() {
+                            var data = google.visualization.arrayToDataTable([
+                              ['class', '% of Images'],
+                              ['Malnutrition',     50],
+                              ['Nutrition',    50],
+                                                          
+                            ]);
+                    
+                            var options = {
+                              title: '',
+                              is3D: true,
+                            };
+                    
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                            chart.draw(data, options);
+                          }
+                          
+                        </script>
+                      </head>
+                      <body>
+                        <center><h1>Dataset Class Distribution Chart</h1></center>
+                       
+                      <center>  <div id="piechart_3d" style="width: 900px; height: 500px; "></div></center>
+                         
+						 
+						 <h1><center>Model Accuracy Chart</center></h1>
+						 <div id = "container" style = "width: 750px; height: 400px; margin: 0 auto">
+						 </div>
+						 <script language = "JavaScript">
+							function drawChart() {
+							   // Define the chart to be drawn.
+							   var data = google.visualization.arrayToDataTable([
+								  ['Model', 'Train Accuracy','Test Accuracy'],
+								  ['ResNet152V2', 99,96],
+								  ['MobileNet',  99,95],
+							   ]);
+				   
+							   var options = {title: 'accuracy_score'}; 
+				   
+							   // Instantiate and draw the chart.
+							   var chart = new google.visualization.BarChart(document.getElementById('container'));
+							   chart.draw(data, options);
+							}
+							google.charts.setOnLoadCallback(drawChart);
+						 </script>
+                      </body>
+          <h2 class="center-heading">ResNet152V2 Model</h2>
+          <br>
+          <h1 class="center-heading">Model Loss</h1>
+          <br><br>
+  
+          <div class="image-container">
+              <img src="../static/Training Loss resnet.png" alt="Inceptionv3 Model Loss">
+          </div>
+  
+          <br><br>
+  
+          <h1 class="center-heading">Model Accuracy</h1>
+          <br><br>
+  
+          <div class="image-container">
+              <img src="../static/Training Accuracy resnet.png" alt="Inceptionv3 Model Accuracy">
+          </div>
+  
+          <br><br>
+  
+          <h2 class="center-heading">MobileNetv2 Model</h2>
+          <br>
+          <h1 class="center-heading">Model Loss</h1>
+          <br><br>
+  
+          <div class="image-container">
+              <img src="../static/Training Loss mobile.png" alt="MobileNetv2 Model Loss">
+          </div>
+  
+          <br><br>
+  
+          <h1 class="center-heading">Model Accuracy</h1>
+          <br><br>
+  
+          <div class="image-container">
+              <img src="../static/Training Accuracy mobile.png" alt="MobileNetv2 Model Accuracy">
+          </div>
+  
+      </div>
+  </div>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+           
+        </div>
+      </div>
+    </footer>
+     
+     
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="../static/assets/js/custom.js"></script>
+    <script src="../static/assets/js/owl.js"></script>
+    <script src="../static/assets/js/slick.js"></script>
+    <script src="../static/assets/js/accordions.js"></script>
+
+    
+
+  </body>
+</html>

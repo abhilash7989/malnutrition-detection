@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="TemplateMo">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+  <title>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../static/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="../static/assets/css/result.css">
+  <link rel="stylesheet" href="../static/assets/css/owl.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+    <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand"><h2>Malnutrition detection</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('first')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('index')}}">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('performance')}}">Performance Analysis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('chart')}}">chart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('first')}}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</h1>
+          <span>Prediction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callback-form contact-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <span>Prediction Result</span>
+            <h2>Malnutrition<em> Detection</em></h2>
+          </div>
+        </div>
+
+        <div class="container-fluid row">
+          <div class="navbar-header col-md-1 col-sm-1"></div>
+        </div>
+
+        <div id="pdf-content" class="col-md-12">
+          {% if prediction %}
+          <br>
+          <div class="text-center">
+            <img src="{{img_path}}" height="300px" width="300px">
+          </div>
+          <br><br>
+
+          <div class="text-center">
+            <h2> Model Selected :
+              <i class="model-text" style="color: rgb(14, 52, 221);">{{model}}</i>
+            </h2>
+          </div>
+          <br>
+          <div class="text-center">
+            <h2> Prediction Result is :
+              <i class="prediction-text" style="color: rgb(204, 17, 17);">{{prediction}}</i>
+            </h2>
+          </div>
+
+          {% if recommendation %}
+          <br>
+          <div class="text-center">
+            <div class="alert alert-info mx-auto" style="width: 70%; font-size: 18px; line-height: 1.6;">
+              <strong>Recommendation:</strong><br>
+              {{ recommendation }}
+            </div>
+          </div>
+          {% endif %}
+          <br>
+          {% endif %}
+        </div>
+
+        <!-- Centered Download Button -->
+        <div class="row w-100">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-primary mt-4 mb-5 px-4 py-2"
+              style="font-size: 18px; font-weight: 500; border-radius: 8px;"
+              onclick="downloadPDF()">
+              Download PDF
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row"></div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Additional Scripts -->
+  <script src="../static/assets/js/custom.js"></script>
+  <script src="../static/assets/js/owl.js"></script>
+  <script src="../static/assets/js/slick.js"></script>
+  <script src="../static/assets/js/accordions.js"></script>
+
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const content = document.getElementById("pdf-content");
+
+      // Ensure images load before capturing
+      await new Promise(resolve => {
+        const imgs = content.querySelectorAll("img");
+        let loaded = 0;
+        if (imgs.length === 0) return resolve();
+        imgs.forEach(img => {
+          if (img.complete) loaded++;
+          else img.onload = () => {
+            loaded++;
+            if (loaded === imgs.length) resolve();
+          };
+        });
+        if (loaded === imgs.length) resolve();
+      });
+
+      const canvas = await html2canvas(content, { scale: 2, useCORS: true });
+      const imgData = canvas.toDataURL('image/png');
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "pt",
+        format: "a4"
+      });
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const imgWidth = pageWidth - 40;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
+      pdf.save("prediction-report.pdf");
+    }
+  </script>
+
+</body>
+</html>

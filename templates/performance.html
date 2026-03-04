@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../static/assets/css/performance.css">
+    <link rel="stylesheet" href="../static/assets/css/owl.css">
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand"><h2>Malnutrition Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('first')}}">Home</a>
+              </li>  
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('index')}}">Preview</a>
+                </li>  
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('performance')}}">Performance Analysis</a>
+                  </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('chart')}}">chart</a>
+                </li>  
+                 <li class="nav-item">
+              <a class="nav-link" href="{{url_for('first')}}">Logout</a>
+            </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Detection of Malnutrition in Children Through Visual Diagnosis of Pediatric Images Using Deep Learning</h1>
+            <span>Performance Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div> 
+   
+
+    
+    <div class="callback-form contact-us">
+      <div class="container">
+          <div class="section-heading">
+              <span>Performance Analysis</span>
+              <h2>Malnutrition <em>Detection</em></h2>
+          </div>
+
+     
+          
+          <body>
+            <div style="text-align: center; color: green;">
+                
+      <br>
+                <font size="5">Performance Analysis of ResNet152V2 Model</font>
+
+            </div>
+            
+            <br><br>
+            
+            
+            
+            <br><br>
+            
+            <table style="width: 50%; margin: auto; font-size: 20px; text-align: center; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; padding: 10px;">Class</th>
+                        <th style="border: 1px solid black; padding: 10px;">Recall</th>
+                        <th style="border: 1px solid black; padding: 10px;">F1</th>
+                        <th style="border: 1px solid black; padding: 10px;">Precision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 10px;">Malnutrition</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 10px;">Nutrition</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                    </tr>
+        
+         
+                    
+                </tbody>
+            </table>
+            
+            <br><br>
+            
+           
+            
+           </div>  
+            </br>
+           </br>
+           </br>
+           
+           
+           <div class="col-lg-8 mx-auto">
+                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                       
+                                  
+                                 <div><span style="margin-left:260px;color:red"><font size="6">Confusion Matrix of ResNet152V2 Model</font></div>
+                                 </br>
+                                 </br>
+                                 
+                           <center>	    <div><img style="margin-left:10px;width:800px;height:500px;" src="../static/resnet.png"</div></center>
+                                          
+                                    
+                                          
+                   </div>
+           
+           
+            
+           </body>
+                           
+           <br>
+           <br>
+
+
+
+
+
+     
+  <body>
+            <div style="text-align: center; color: green;">
+                
+      <br>
+                <font size="5">Performance Analysis of MobileNet Model</font>
+
+            </div>
+            
+            <br><br>
+            
+            
+            
+            <br><br>
+            
+    <table style="width: 50%; margin: auto; font-size: 20px; text-align: center; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; padding: 10px;">Class</th>
+                        <th style="border: 1px solid black; padding: 10px;">Recall</th>
+                        <th style="border: 1px solid black; padding: 10px;">F1</th>
+                        <th style="border: 1px solid black; padding: 10px;">Precision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 10px;">Malnutrition</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.95</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 10px;">Nutrition</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                        <td style="border: 1px solid black; padding: 10px;">0.96</td>
+                    </tr>
+      
+         
+                    
+                </tbody>
+            </table>
+            
+            <br><br>
+            
+           
+            
+           </div>  
+            </br>
+           </br>
+           </br>
+           
+           
+           <div class="col-lg-8 mx-auto">
+                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                       
+                                  
+                                 <div><span style="margin-left:260px;color:red"><font size="6">Confusion Matrix of MobileNet Model</font></div>
+                                 </br>
+                                 </br>
+                                 
+                           <center>	    <div><img style="margin-left:10px;width:800px;height:500px;" src="../static/mobile.png"</div></center>
+                                          
+                                    
+                                          
+                   </div>
+           
+           
+            
+           </body>
+                           
+           <br>
+           <br>
+
+
+          </div>
+        </div>
+      </div>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+           
+        </div>
+      </div>
+    </footer>
+     
+     
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="../static/assets/js/custom.js"></script>
+    <script src="../static/assets/js/owl.js"></script>
+    <script src="../static/assets/js/slick.js"></script>
+    <script src="../static/assets/js/accordions.js"></script>
+
+    
+
+  </body>
+</html>

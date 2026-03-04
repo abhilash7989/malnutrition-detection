@@ -1,0 +1,12 @@
+Detection of Malnutrition in Children 
+*********************************************
+Algorithm / Model Used: ResNet152V2 model
+
+Accuracy Train Score: 99%
+Accuracy Test Score: 96%
+*********************************************
+Algorithm / Model Used: MobileNet model
+
+Accuracy Train Score: 99%
+Accuracy Test Score: 95%
+*********************************************
