@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import os
+import gdown
 from flask import Flask, render_template, request
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -13,6 +15,14 @@ disease_classes = ['Malnutrition',
                    'Nutrition',
                  
                   ]
+# Download models from Google Drive if not present
+if not os.path.exists("MobileNet.h5"):
+    gdown.download("https://drive.google.com/uc?id=1p7E6WrqwWdXPLNxBW7i4Ple24DhSVAf0", 
+                   "MobileNet.h5", quiet=False)
+
+if not os.path.exists("ResNet152V2.h5"):
+    gdown.download("https://drive.google.com/uc?id=17HKlA0M0vOlhaTj2hf2x6p21DB5SElYM", 
+                   "ResNet152V2.h5", quiet=False)
 
 
 # Load models
